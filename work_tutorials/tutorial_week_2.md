@@ -13,7 +13,21 @@ Provide definiations of the following:
 
 ### Centrality
 * The Degree of nodes A, B, and C
+  * $d_A = 3, d_B = 1, d_C = 3$
 * The Eigenvector Centrality of nodes A, B, C, D, and E. (Use wolphram alpha or numpy to solve the matrix equations)
+
+$$\lambda c = A c$$
+
+$$ \lambda c = {\left\lbrack \matrix{0 & 1 & 1 & 0 & 1 \cr 1 & 0 & 0 & 0 & 0 \cr 1 & 0 & 0 & 1 & 1 \cr 0 & 0 & 1 & 0 & 1 \cr 1 & 0 & 1 & 1 & 0} \right\rbrack} c$$
+
+Use wolfram alpha to find the eigenvector of A with the largest eigenvalue:
+
+```
+eigenvectors {{1, 1, 1, 0 , 1}, {1,1,0,0,0},{1,0,0,1,1}, {0,0,1,1,1},{1,0,1,1,1}}
+v_1≈(0.892316, 0.371337, 0.772881, 0.737784, 1)
+λ_1≈3.40298
+```
+
 * The Betweenness Centrality of node E
 * The Closeness Centrality of nodes B and C
 
