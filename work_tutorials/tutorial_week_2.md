@@ -5,11 +5,11 @@ These questions refer to the following graph:
 
 ### Define:
 Provide definiations of the following:
-* Degree
-* Eigenvector Centrality
-* Betweenness Centrality
-* Closeness Centrality
-* Clustering Coefficient
+* Degree - number of edges incident with the node
+* Eigenvector Centrality - eigenvector centrality value is equal to the sum of eigenvector centrality of the node's neighbours. This turns out to be an eigenvector of the adjacency matrix.
+* Betweenness Centrality - ratio of shortest paths in the graph that include the node over all shortest paths (but exclude shortest paths where the node is an endpoint)
+* Closeness Centrality - how close the node is to other vertices in the graph. 1 over the sum of shortest paths to all other nodes
+* Clustering Coefficient - ratio of (count of neighbour pairs that have an edge between them) / (count of neighbour pairs)
 
 ### Centrality
 * The Degree of nodes A, B, and C
@@ -27,3 +27,6 @@ Graphlets of Degree 3:
 
 ## Code
 [Colab 1](https://colab.research.google.com/drive/1p2s0on6nibUYhJnONBWEAwpBlue37Tcc?usp=sharing)
+
+### Questions
+* For closeness centrality - what do you do for nodes you can't reach?
