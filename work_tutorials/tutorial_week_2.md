@@ -29,7 +29,27 @@ v_1≈(0.892316, 0.371337, 0.772881, 0.737784, 1)
 ```
 
 * The Betweenness Centrality of node E
+
+$$c_E = {\text{number shortest paths (where endpoint is not E) that pass through vertex E} \over \text{number of shortest paths (where endpoint is not E )}}$$
+
+Find all shortest paths between the pairs of vertices in {A, B, C , D} - (A,B), (A,C), (A,D), (B,C), (B,D), (C,D)
+
+| Vertex pair | total shortest paths | shortest paths that include E |
+| ---- | ----| ---- |
+| AB| 1| 0|
+| AC | 1| 0|
+| AD| 2| 1|
+| BC | 1| 0|
+| BD| 2| 1|
+| CD | 1 | 0|
+
+$$c_E = { 2 \over 8} = {1 \over 4}$$
+
 * The Closeness Centrality of nodes B and C
+
+$$ c_B = {1 \over (1 + 2 +3 + 2)} = {1 \over 8}$$
+
+$$ c_C = {1 \over (1 + 2 + 1 + 1)} = {1 \over 5}$$
 
 ### Clustering
 * The Clustering Coefficient of node E
