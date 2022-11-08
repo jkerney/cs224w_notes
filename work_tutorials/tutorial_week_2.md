@@ -47,9 +47,9 @@ $$c_E = { 2 \over 8} = {1 \over 4}$$
 
 * The Closeness Centrality of nodes B and C
 
-$$ c_B = {1 \over (1 + 2 +3 + 2)} = {1 \over 8}$$
+$$ c_B = {1 \over (BA + BAC + BACD + BAE)} = {1 \over (1 + 2 + 3 + 2)} = {1 \over 8}$$
 
-$$ c_C = {1 \over (1 + 2 + 1 + 1)} = {1 \over 5}$$
+$$ c_C = {1 \over (CA + CAB + CD + CE)} = {1 \over (1 + 2 + 1 + 1)} = {1 \over 5}$$
 
 ### Clustering
 * The Clustering Coefficient of node E
