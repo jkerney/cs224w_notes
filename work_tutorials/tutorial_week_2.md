@@ -30,7 +30,7 @@ v_1≈(0.892316, 0.371337, 0.772881, 0.737784, 1)
 
 * The Betweenness Centrality of node E
 
-$$c_E = {\text{number shortest paths (where endpoint is not E) that pass through vertex E} \over \text{number of shortest paths (where endpoint is not E )}}$$
+$$c_E = \sum{\text{number shortest paths that pass through vertex E} \over \text{number of shortest paths}}$$
 
 Find all shortest paths between the pairs of vertices in {A, B, C , D} - (A,B), (A,C), (A,D), (B,C), (B,D), (C,D)
 
@@ -43,9 +43,9 @@ Find all shortest paths between the pairs of vertices in {A, B, C , D} - (A,B), 
 | BD| 2| 1|
 | CD | 1 | 0|
 
-$$c_E = { 2 \over 8} = {1 \over 4}$$
+$$c_E = 0 + 0 + {1 \over 2} + 0 + {1 \over 2} + 0 = 1$$
 
-* The Closeness Centrality of nodes B and C
+* The Closeness Centrality of nodes B and C (note this is unnormalised version)
 
 $$ c_B = {1 \over (BA + BAC + BACD + BAE)} = {1 \over (1 + 2 + 3 + 2)} = {1 \over 8}$$
 
