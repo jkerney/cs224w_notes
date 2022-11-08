@@ -53,7 +53,14 @@ $$ c_C = {1 \over (1 + 2 + 1 + 1)} = {1 \over 5}$$
 
 ### Clustering
 * The Clustering Coefficient of node E
+
+$$c_E = { \text{number of connected neighbour pairs} \over \text{number of neighbour pairs} }$$
+
+$$c_E = { 2 \over 3 }$$
+
 * Graphlet Degree Vector of node C for Graphlets of Degree 2 or 3
+
+$$c_C = [3,2,0,1]$$
 
 Graphlets of Degree 3:
 
