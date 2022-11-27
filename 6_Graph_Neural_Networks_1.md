@@ -1,3 +1,5 @@
+# Week 6 - Graph Neural Networks
+
 ## Lecture 6.1 - Introduction to Graph Neural Networks
 
 ### Recap
