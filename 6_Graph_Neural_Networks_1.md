@@ -50,3 +50,37 @@
     - back propogation - compute gradient of L with respect to model parameters
     - introduce non-linearity - relu, sigmoid
     - Multi-layer Perceptron - each layer has bias and non-linearity
+
+## Lecture 6.2 - Deep Learning for Graphs
+
+- Graph G with following
+    - $V$ vertex set
+    - $A$ adjacency matrix
+    - $X \in \mathbb{R}^{m \times |V|}$
+    - $v$ node in $V$
+    - $n(v)$ neighbours of node $v$
+
+- Naive approach to representing graph
+    - matrix of adjacency matrix appended with node features
+    - Problems:
+        - $O(|V|)$ parameters
+        - sensitive to node ordering
+    - Use ideas from convolutional neural networks
+    - Node's neighbourhood defines a computation graph
+        - Determine node computation graph
+        - Propogate and transform information
+        - Generate node embeddings based on local network neighbourhoods
+        - Nodes aggregate information from neighbours using neural networks
+        - Every node defines a computation graph based on its neighbourhood
+        - Every node comes with its own neural network architecture?
+        - Model of arbitrary depth
+            - Nodes have embeddings at each layer
+            - Layer 0 embedding is the input feature of the node
+            - layer k embedding gets information from nodes that are k hops away
+        - Neighbourhood aggregation
+            - Basic - average information from neighbours and apply a neural network (linear transformation followed by non-linearity)
+        - Matrix formulation
+            - note all nodes use the same $W$ and $b$
+    - Can apply model on graphs we haven't seen before. Can generalise to unseen nodes. Could train on a small graph and apply to a large graph.
+    - 
+
