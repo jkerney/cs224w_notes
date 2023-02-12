@@ -51,36 +51,41 @@
     - introduce non-linearity - relu, sigmoid
     - Multi-layer Perceptron - each layer has bias and non-linearity
 
-## Lecture 6.2 - Deep Learning for Graphs
+## Lecture 6.3 - Deep Learning for Graphs
 
-- Graph G with following
-    - $V$ vertex set
-    - $A$ adjacency matrix
-    - $X \in \mathbb{R}^{m \times |V|}$
-    - $v$ node in $V$
-    - $n(v)$ neighbours of node $v$
-
-- Naive approach to representing graph
-    - matrix of adjacency matrix appended with node features
+- Naive approach to representing graph in a neural network
+    - Adjacency matrix appended with node features
     - Problems:
-        - $O(|V|)$ parameters
-        - sensitive to node ordering
-    - Use ideas from convolutional neural networks
-    - Node's neighbourhood defines a computation graph
-        - Determine node computation graph
+        - $O(|V|)$ parameters. End up with more parameters than rows of training data. Leads to overfitting?
+        - Sensitive to node ordering. Using a different order of node neighbours leads to different inputs to the parameters.
+    - Instead use ideas from convolutional neural networks to scan over a subset of a grid and produce a summary pixel.
+ 
+- GNN architecture
+    - Each node has a computation graph
         - Propogate and transform information
         - Generate node embeddings based on local network neighbourhoods
         - Nodes aggregate information from neighbours using neural networks
         - Every node defines a computation graph based on its neighbourhood
-        - Every node comes with its own neural network architecture?
-        - Model of arbitrary depth
-            - Nodes have embeddings at each layer
-            - Layer 0 embedding is the input feature of the node
-            - layer k embedding gets information from nodes that are k hops away
-        - Neighbourhood aggregation
-            - Basic - average information from neighbours and apply a neural network (linear transformation followed by non-linearity)
-        - Matrix formulation
-            - note all nodes use the same $W$ and $b$
+    - Model of arbitrary depth
+        - Nodes have embeddings at each layer
+        - Layer 0 embedding is the input feature of the node
+        - Layer k embedding gets information from nodes that are k hops away
+        - Number of layers would depend on width of graph - what's the length of the longest shortest path?
+    - Neighbourhood aggregation
+        - Basic - average information from neighbours and apply a neural network (linear transformation followed by non-linearity)
+    - Formula for node embeddings
+        - at level 0, node embedding $h_{0}$ is just the node feature itself
+        - at level i, node embedding $h_{i}$ is
+            - linear transformation $W$ applied to the average of the node's neighbours node embeddings at the previous layer
+            - linear transformation $B$ applied to the node's previous node embedding
+            - Linear transformations summed, then a non-linear transformation applied
+
+    - We can use adjacency matrix to write an equation that generates node embeddings for all nodes at once
+        - $H^{(l)} = [h_{1} h_{2} ... h_{|v|}]$
+        - Once we have this, we can write $H^{(l+1)} = D^{-1}AH^{(l)}W_{l}^{T} + H^{(l)}B_{l}^{T}$
+
+    - Can then feed node embeddings into a loss function, apply SGD to train the weights of the transformations
+    - Can use in both supervised and unsupervised context. In the unsupervised context, we choose a similarity measure e.g. node2vec, matrix factorisation. We then train the model to predict the similarity of the similarity measure.
+
     - Can apply model on graphs we haven't seen before. Can generalise to unseen nodes. Could train on a small graph and apply to a large graph.
-    - 
 
